@@ -55,6 +55,24 @@ const students = [
   { name: 'Jill', scores: [85, 90, 84] },
 ];
 
+function getStudentsWithAverageScore(students, threshold) {
+  const result = [];
+ for (let z = 0; z < students.length; z++) {
+    const student = students[z];
+    const scores = student.scores;
+
+    const sum = scores.reduce((acc, cur) => acc + cur, 0);
+    const avg = sum / scores.length;
+
+    if (avg >= threshold) {
+      result.push(student.name);
+    }
+  }
+  return result;
+}
+const result = getStudentsWithAverageScore(students, 85);
+console.log(result);
+
 
 
 //4.Given an object representing a car, with properties for the make, model, year, 
@@ -74,4 +92,4 @@ car.age = function() {
   const currentYear = new Date().getFullYear();
   return currentYear - this.year;
 };
-console.log(car.age()); // assuming the current year is 2023
+console.log(car.age()); 
